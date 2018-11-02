@@ -1,6 +1,6 @@
 #mo-common
 
-`composer require 'momo/mo-common:dev-master'`.  
+`composer require 'xiaomo/mo-common:dev-master'`.  
 
 > 当前目录结构, 均属于MoCommon空间.
 
