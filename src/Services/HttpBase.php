@@ -1,6 +1,6 @@
 <?php
 
-namespace MoCommon\HttpBase;
+namespace MoCommon\Services;
 
 /**
  * http请求相关
