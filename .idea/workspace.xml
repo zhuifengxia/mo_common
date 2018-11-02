@@ -2,41 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adb2ee5a-e73f-4aa1-8159-ef98c3320ca1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Business/CasualActivity.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/CollectLogStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/Dianzan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/GoldLogStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/LogsType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/MTagClass.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/MemberStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/MkCommentType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/MoneyFlowType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/PicLogStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/QuestionExtStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/QuestionLogPayIssueIsopen.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/QuestionLogStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/QuestionLogType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/ShoucangIsCollect.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/TradeLogPayIssueStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/TradeLogPayType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/TradeLogStatus.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/TradeLogType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DataState/WendaLog.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/caina_data_transfer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/check_wx_interface_configure.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/give_newhand_kb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/model_base.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/pay_to_see_return.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/produce_all_models.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/question_ext_desc_data_transfer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/question_log_desc_data_transfer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Support/Scripts/user_total_income_data_transfer.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Services/ServiceBase.php" afterPath="$PROJECT_DIR$/src/Services/HttpBase.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DataState/readme.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Business/BizCodes.php" afterPath="$PROJECT_DIR$/src/Business/BizCodes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Support/Codes.php" afterPath="$PROJECT_DIR$/src/Support/Codes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Support/Helper.php" afterPath="$PROJECT_DIR$/src/Support/Helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Support/QRcode.php" afterPath="$PROJECT_DIR$/src/Support/QRcode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="yk-common.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,22 +47,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Codes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Support/Codes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="30">
+                <caret line="2" column="28" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="28" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSSDK.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/WeChat/JSSDK.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-              <folding />
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataState/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -213,6 +187,7 @@
         <option value="$PROJECT_DIR$/src/Support/Codes.php" />
         <option value="$PROJECT_DIR$/src/Business/BizCodes.php" />
         <option value="$PROJECT_DIR$/src/Services/HttpBase.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -317,7 +292,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Business" />
+              <option name="myItemId" value="DataState" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -333,6 +308,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -387,18 +367,18 @@
       <option name="presentableId" value="Default" />
       <updated>1541139910045</updated>
       <workItem from="1541139911419" duration="275000" />
-      <workItem from="1541140229409" duration="1910000" />
+      <workItem from="1541140229409" duration="2154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2185000" />
+    <option name="totallyTimeSpent" value="2429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2536349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2536349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -798,10 +778,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Support/Constants.php">
+    <entry file="file://$PROJECT_DIR$/src/WeChat/JSSDK.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="315">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -814,11 +794,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WeChat/JSSDK.php">
+    <entry file="file://$PROJECT_DIR$/src/Support/Constants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="60">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataState/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="28" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="28" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

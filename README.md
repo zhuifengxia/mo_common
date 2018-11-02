@@ -1,8 +1,8 @@
-#yk-common
+#mo-common
 
-`composer require 'yk/yk-common:dev-master'`.  
+`composer require 'mo-common:dev-master'`.  
 
-> 当前目录结构, 均属于YkCommon空间.
+> 当前目录结构, 均属于MoCommon空间.
 
 ```
 src/  
@@ -15,8 +15,6 @@ src/
     STBase.php  # DataState/ 中的文件均继承此类.  
 
     Support/    # 基础设施部分, 相对通用or独立.  
-
-    Traits/     # 共用部分.  
 
     WeChat/     # 放置基础的wechat操作类.  
 
