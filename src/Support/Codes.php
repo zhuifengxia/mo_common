@@ -1,13 +1,13 @@
 <?php
 
-namespace YkCommon\Support;
+namespace MoCommon\Support;
 
 /**
- * 状态码.
+ * 通用状态码.
  *
  * @farwish
  */
-class Codes extends \YkCommon\STBase
+class Codes extends \MoCommon\STBase
 {
     const ACTION_SUC = 0;
     const ACTION_FAL = -1;

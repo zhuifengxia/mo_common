@@ -1,6 +1,6 @@
 <?php
 
-namespace YkCommon\Support;
+namespace MoCommon\Support;
 
 /**
  * 静态调用系列函数.

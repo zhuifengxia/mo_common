@@ -1,6 +1,6 @@
 <?php
 
-namespace YkCommon\Support;
+namespace MoCommon\Support;
 
 /*
  * PHP QR Code encoder
