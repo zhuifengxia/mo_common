@@ -327,24 +327,6 @@ class Helper
             mt_rand(100, 999);
     }
 
-    /**
-     * 红包金额生成.
-     *
-     * 默认 1 ~ 1.5
-     *
-     * @param int $min
-     * @param int $max
-     *
-     * @return float.
-     *
-     * @farwish
-     */
-    public static function redbag($min = 1, $max = 1)
-    {
-        $yuan = ($min === $max) ? $min : mt_rand($min, $max);
-
-        return $yuan + (mt_rand(0, 50) / 100);
-    }
 
     /**
      * @param $url
@@ -459,6 +441,8 @@ class Helper
 
         return $str;
     }
+
+
 
 
 
