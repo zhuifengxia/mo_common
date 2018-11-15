@@ -1,6 +1,6 @@
 {
     "name": "mo/mo-common",
-    "description": "xiaomo common library",
+    "description": "mo common library",
     "type": "library",
     "license": "proprietary",
     "require": {
@@ -11,7 +11,7 @@
     },
     "authors": [
         {
-            "name": "xiaomo",
+            "name": "mo",
             "email": "xirizhifeng@163.com"
         }
     ],
