@@ -54,14 +54,27 @@ class WXBizDataCrypt
 
         $aesCipher=base64_decode($encryptedData);
 
-        $pc = new Prpcrypt($aesKey);
-        $result = $pc->decrypt($aesCipher,$aesIV);
+//        $pc = new Prpcrypt($aesKey);
+//        $result = $pc->decrypt($aesCipher,$aesIV);
+//
+//        if ($result[0] != 0) {
+//            return $result[0];
+//        }
+//
+//        $dataObj=json_decode( $result[1] );
+//        if( $dataObj  == NULL )
+//        {
+//            return ErrorCode::$IllegalBuffer;
+//        }
+//        if( $dataObj->watermark->appid != $this->appid )
+//        {
+//            return ErrorCode::$IllegalBuffer;
+//        }
+//        $data = $result[1];
+//        return ErrorCode::$OK;
+        $result=openssl_decrypt( $aesCipher, "AES-128-CBC", $aesKey, 1, $aesIV);
 
-        if ($result[0] != 0) {
-            return $result[0];
-        }
-
-        $dataObj=json_decode( $result[1] );
+        $dataObj=json_decode( $result );
         if( $dataObj  == NULL )
         {
             return ErrorCode::$IllegalBuffer;
@@ -70,7 +83,7 @@ class WXBizDataCrypt
         {
             return ErrorCode::$IllegalBuffer;
         }
-        $data = $result[1];
+        $data = $result;
         return ErrorCode::$OK;
     }
 
