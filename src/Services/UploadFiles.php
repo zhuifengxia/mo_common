@@ -21,7 +21,7 @@ class UploadFiles
      * @param $filepath 文件上传路径
      * @param $viewpath 外部访问地址
      */
-    public function singlefileupload($typelist,$file,$filepath,$viewpath)
+    public static function singlefileupload($typelist,$file,$filepath,$viewpath)
     {
         $resultpath = "";
         if (empty($typelist)) {
