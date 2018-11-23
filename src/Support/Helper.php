@@ -54,7 +54,7 @@ class Helper
 	 *
 	 * @farwish
 	 */
-	public static function custom_mt_uniqid($prefix = 'YK')
+	public static function custom_mt_uniqid($prefix = 'Mo')
 	{
 		$value = mt_rand();
 
