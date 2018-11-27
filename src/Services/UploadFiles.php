@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * 上传文件类
  * User: liudanfeng
  * Date: 2018/11/23
  * Time: 上午10:22
