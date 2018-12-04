@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adb2ee5a-e73f-4aa1-8159-ef98c3320ca1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Services/ExportExcel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Services/UploadFiles.php" afterPath="$PROJECT_DIR$/src/Services/UploadFiles.php" />
     </list>
     <ignored path="yk-common.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +39,7 @@
       <file leaf-file-name="Helper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Support/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="840">
               <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
               <folding>
                 <marker date="1542940301766" expanded="true" signature="1692:1731" ph="INSERT INTO $... " />
@@ -61,24 +58,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UploadFiles.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Services/UploadFiles.php">
+      <file leaf-file-name="Wx.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WeChat/Wx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            <state relative-caret-position="290">
+              <caret line="756" column="7" selection-start-line="756" selection-start-column="7" selection-end-line="756" selection-end-column="7" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExportExcel.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Services/ExportExcel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-              <folding>
-                <element signature="e#6#81#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +79,6 @@
         <option value="$PROJECT_DIR$/src/STBase.php" />
         <option value="$PROJECT_DIR$/src/Traits/ControllerTrait.php" />
         <option value="$PROJECT_DIR$/src/WeChat/WxAbstract.php" />
-        <option value="$PROJECT_DIR$/src/WeChat/Wx.php" />
         <option value="$PROJECT_DIR$/src/WeChat/JSSDK.php" />
         <option value="$PROJECT_DIR$/src/Support/QRcode.php" />
         <option value="$PROJECT_DIR$/src/Services/ServiceBase.php" />
@@ -107,6 +91,8 @@
         <option value="$PROJECT_DIR$/src/Support/Helper.php" />
         <option value="$PROJECT_DIR$/src/Services/UploadFiles.php" />
         <option value="$PROJECT_DIR$/src/Services/ExportExcel.php" />
+        <option value="$PROJECT_DIR$/src/WeChat/Util.php" />
+        <option value="$PROJECT_DIR$/src/WeChat/Wx.php" />
       </list>
     </option>
   </component>
@@ -198,25 +184,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Support" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mo-common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mo-common" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Services" />
+              <option name="myItemId" value="WeChat" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,8 +201,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Services" />
       <recent name="$PROJECT_DIR$/src/WeChat" />
+      <recent name="$PROJECT_DIR$/src/Services" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -310,18 +278,22 @@
       <workItem from="1542356488495" duration="700000" />
       <workItem from="1542683593067" duration="8000" />
       <workItem from="1542939702148" duration="3419000" />
-      <workItem from="1543194353863" duration="1211000" />
+      <workItem from="1543194353863" duration="2549000" />
+      <workItem from="1543390865474" duration="554000" />
+      <workItem from="1543454593776" duration="5000" />
+      <workItem from="1543892694822" duration="360000" />
+      <workItem from="1543903145803" duration="1992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18048000" />
+    <option name="totallyTimeSpent" value="22297000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30533117" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31987077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -356,17 +328,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="25" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="25" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -413,20 +374,6 @@
     <entry file="file://$PROJECT_DIR$/src/YZ/YZOauthClient.php" />
     <entry file="file://$PROJECT_DIR$/src/YZ/YZTokenClient.php" />
     <entry file="file://$PROJECT_DIR$/src/Traits/ControllerTrait.php" />
-    <entry file="file://$PROJECT_DIR$/src/WeChat/WxAbstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WeChat/Wx.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Support/Scripts/pay_to_see_return.php" />
     <entry file="file://$PROJECT_DIR$/src/Support/Scripts/user_total_income_data_transfer.php" />
     <entry file="file://$PROJECT_DIR$/src/Support/Scripts/question_log_desc_data_transfer.php" />
@@ -476,13 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WeChat/JSSDK.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Support/Codes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -522,13 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -542,7 +475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Support/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="840">
           <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
           <folding>
             <marker date="1542940301766" expanded="true" signature="1692:1731" ph="INSERT INTO $... " />
@@ -550,10 +483,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/HttpBase.php">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="255">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WeChat/JSSDK.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WeChat/Util.php" />
+    <entry file="file://$PROJECT_DIR$/src/WeChat/WxAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-148">
+          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -568,11 +516,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Services/ExportExcel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        <state relative-caret-position="195">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding>
-            <element signature="e#6#81#0#PHP" expanded="true" />
+            <element signature="e#6#81#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/HttpBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WeChat/Wx.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="756" column="7" selection-start-line="756" selection-start-column="7" selection-end-line="756" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
