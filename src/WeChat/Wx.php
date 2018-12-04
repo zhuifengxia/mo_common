@@ -706,9 +706,16 @@ class Wx extends WxAbstract
     const SP_TOKEN_URI = "https://api.weixin.qq.com/cgi-bin/token?";
 
 
+    /**
+     * 小程序发送模板消息
+     */
     const SP_SEND_TEMPLATE_URI = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?";
 
 
+    /**
+     * 小程序生成带参二维码授权url
+     */
+    const SP_QRCODE_CREATE_URI = "https://api.weixin.qq.com/wxa/getwxacode?";
 
     /**
      * @param $appid
@@ -727,6 +734,33 @@ class Wx extends WxAbstract
 
         return self::SP_TOKEN_URI. http_build_query($param);
     }
+
+    /**
+     * @desc  小程序生成带参数二维码url
+     * @author charlesyq
+     * @return string
+     */
+    protected static function sp_qrcode_create_uri($access_token)
+    {
+        $param = [
+            'access_token' => $access_token,
+        ];
+        return self::SP_QRCODE_CREATE_URI.http_build_query($param);
+    }
+
+    /**
+     * @param $appid
+     * @param $appsecret
+     * @desc  小程序生成带参数二维码
+     * @author charlesyq
+     * @return string
+     */
+    protected static function sp_qrcode_create($access_token,$json_template)
+    {
+        $url = static::sp_send_template_uri($access_token);
+        return static::parsePostJson($url, urldecode($json_template));
+    }
+
 
 
     /**
