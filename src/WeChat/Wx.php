@@ -757,7 +757,7 @@ class Wx extends WxAbstract
      */
     protected static function sp_qrcode_create($access_token,$json_template)
     {
-        $url = static::sp_send_template_uri($access_token);
+        $url = static::sp_qrcode_create_uri($access_token);
         return static::parsePostJson($url, urldecode($json_template));
     }
 
