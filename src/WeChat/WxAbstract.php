@@ -47,7 +47,7 @@ Abstract class WxAbstract
      * @param string $param
      * @return bool|mixed
      */
-    public static  function parsePostJson($url = '', $param = '')
+    public static  function parsePostJson($url = '', $param = '',$isjson=0)
     {
         if (empty($url) || empty($param)) {
             return false;
@@ -62,8 +62,11 @@ Abstract class WxAbstract
         curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
         $data = curl_exec($ch); //运行curl
         curl_close($ch);
-
-        return json_decode($data, TRUE);
+        if($isjson){
+            return $data;
+        }else{
+            return json_decode($data, TRUE);
+        }
     }
 
     /**
