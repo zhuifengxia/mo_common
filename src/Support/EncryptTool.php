@@ -9,7 +9,7 @@ namespace MoCommon\Support;
  */
 class EncryptTool
 {
-    /****************DES加密START*********************/
+    /****************DES加密START(PHP7以下使用)*********************/
     /**
      * 内容数据加密
      * @param $str  待加密字符串
