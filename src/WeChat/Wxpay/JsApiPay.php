@@ -1,6 +1,6 @@
 <?php
 
-namespace YkCommon\WeChat\Wxpay;
+namespace MoCommon\WeChat\Wxpay;
 
 /**
  * 	配置账号信息
