@@ -87,6 +87,10 @@ class EncryptTool
         $public_key = file_get_contents(self::get_cart_path($rootpath, 1));
         $pu_key = openssl_pkey_get_public($public_key);//这个函数可用来判断公钥是否是可用的
         openssl_public_decrypt(base64_decode(urldecode($encrypted)), $decrypted, $pu_key);//公钥解密
+        if (empty($decrypted)) {
+            //可能是请求网络自动urldecode了;
+            openssl_public_decrypt(base64_decode($encrypted), $decrypted, $pu_key);//公钥解密
+        }
         return $decrypted;
     }
 
@@ -116,6 +120,10 @@ class EncryptTool
         $private_key = file_get_contents(self::get_cart_path($rootpath, 0));
         $pi_key = openssl_pkey_get_private($private_key);//这个函数可用来判断私钥是否是可用的，可用返回资源id Resource id
         openssl_private_decrypt(base64_decode(urldecode($encrypted)), $decrypted, $pi_key);//私钥解密
+        if (empty($decrypted)) {
+            //可能是请求网络自动urldecode了;
+            openssl_private_decrypt(base64_decode($encrypted), $decrypted, $pi_key);//私钥解密
+        }
         return $decrypted;
     }
 
