@@ -125,11 +125,11 @@ class EncryptTool
      * @param int $datatpe 0私钥;1公钥
      * @return string
      */
-    function get_cart_path($rootpath,$datatpe=0)
-    {
-        $filepath = $rootpath . "mo/mo-common/src/Support/cart/app_" . ($datatpe ? "public" : "private") . "_key.pem";
-        return $filepath;
-    }
+   static function get_cart_path($rootpath,$datatpe=0)
+   {
+       $filepath = $rootpath . "mo/mo-common/src/Support/cart/app_" . ($datatpe ? "public" : "private") . "_key.pem";
+       return $filepath;
+   }
     /****************OPENSSL加密END*********************/
 
 }
