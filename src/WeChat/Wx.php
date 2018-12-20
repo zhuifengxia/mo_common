@@ -715,7 +715,7 @@ class Wx extends WxAbstract
     /**
      * 小程序生成带参二维码授权url
      */
-    const SP_QRCODE_CREATE_URI = "https://api.weixin.qq.com/wxa/getwxacode?";
+    const SP_QRCODE_CREATE_URI = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?";
 
     /**
      * @param $appid
