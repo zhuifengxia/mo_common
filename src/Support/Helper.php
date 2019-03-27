@@ -16,7 +16,7 @@ class Helper
 	 */
 	public static function array_column_combine($array, $column)
 	{
-		$res = array_column($array, $column); 
+		$res = array_column($array, $column);
 
 		return array_combine($res, $array);
 	}
@@ -37,7 +37,7 @@ class Helper
      * 简化IN条件拼接.
      *
      * @param string | array $data
-     * @param string 
+     * @param string
      * @param boolean in or not in, default is in.
      *
      * @farwish
@@ -65,7 +65,7 @@ class Helper
 		for ($i = 0; $i < 10; $i++) {
 			$rand[] = mt_rand(10, 31);
 		}
-		
+
 		$rand = array_unique($rand);
 
 		for ($i = 0; $i < 32; $i++) {
@@ -213,7 +213,7 @@ class Helper
     public static function referer()
     {
         $protocal = ($_SERVER['SERVER_PORT'] == '443') ? 'https://' : 'http://';
-        
+
         if ( isset($_SERVER['HTTP_REFERER']) ) {
             // 来路
             $direct = $_SERVER['HTTP_REFERER'];
@@ -237,13 +237,13 @@ class Helper
      * @farwish
      */
     public static function update_access_token($access_token, $expires_in)
-    {   
+    {
         $url = 'http://test.kankanyisheng.com/index.php?c=index&a=change_access_token&';
 
         $str = http_build_query([
             'access_token' => $access_token,
             'expires_at' => time() + $expires_in,
-        ]); 
+        ]);
 
         $url = $url . $str;
 
@@ -251,7 +251,7 @@ class Helper
 
         if ($ret['status'] == 0) {
             return true;
-        }   
+        }
 
         return false;
     }
@@ -267,7 +267,7 @@ class Helper
      */
     public static function gentoken($uid = '')
     {
-        $str = microtime() . (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'unknow') . 
+        $str = microtime() . (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'unknow') .
             $uid . '7200';
 
         $md5 = md5($str);
@@ -321,9 +321,9 @@ class Helper
     public static function orderid($salt = '')
     {
         // 14 + 8 + 5 + 3 = 30
-        return str_replace('.', '', microtime(true)) . 
+        return str_replace('.', '', microtime(true)) .
             date('Ymd') .
-            str_pad(substr($salt, 0, 3), 5, 0) . 
+            str_pad(substr($salt, 0, 3), 5, 0) .
             mt_rand(100, 999);
     }
 
@@ -442,7 +442,30 @@ class Helper
         return $str;
     }
 
-
+    /**
+     * 计算两点之间的距离
+     * @param $lat1 纬度1
+     * @param $lng1 经度1
+     * @param $lat2 纬度2
+     * @param $lng2 经度2
+     * @param int $len_type 1m；2km;
+     * @param int $decimal
+     * @return float
+     */
+    function GetDistance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2)
+    {
+        $radLat1 = $lat1 * PI() / 180.0;   //PI()圆周率
+        $radLat2 = $lat2 * PI() / 180.0;
+        $a = $radLat1 - $radLat2;
+        $b = ($lng1 * PI() / 180.0) - ($lng2 * PI() / 180.0);
+        $s = 2 * asin(sqrt(pow(sin($a / 2), 2) + cos($radLat1) * cos($radLat2) * pow(sin($b / 2), 2)));
+        $s = $s * 6378.137;
+        $s = round($s * 1000);
+        if ($len_type-- > 1) {
+            $s /= 1000;
+        }
+        return round($s, $decimal);
+    }
 
 
 
