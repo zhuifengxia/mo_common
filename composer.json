@@ -18,7 +18,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "files": ["src/Support/Constants.php"],
-        "classmap": ["src/WeChat/Wxpay/Enterprice.php","src/WeChat/Wxpay/JsApiPay.php","src/WeChat/WxBizDataCrypt.php"],
+        "classmap": ["src/WeChat/Wxpay/Enterprice.php","src/WeChat/Wxpay/WxpayConfig.php","src/WeChat/WxBizDataCrypt.php"],
         "psr-4": {"MoCommon\\": "src/"}
     }
 }
