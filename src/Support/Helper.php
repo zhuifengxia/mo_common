@@ -452,7 +452,7 @@ class Helper
      * @param int $decimal
      * @return float
      */
-    function GetDistance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2)
+    static function GetDistance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2)
     {
         $radLat1 = $lat1 * PI() / 180.0;   //PI()圆周率
         $radLat2 = $lat2 * PI() / 180.0;
