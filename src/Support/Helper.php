@@ -1,12 +1,14 @@
 <?php
+/**
+ * Description: 系列公共函数.
+ * Author: momo
+ * Date: 2019-04-24 11:47
+ * Copyright: momo
+ */
 
 namespace MoCommon\Support;
 
-/**
- * 静态调用系列函数.
- *
- *
- */
+
 class Helper
 {
 	/**
@@ -54,7 +56,7 @@ class Helper
 	 *
 	 * @farwish
 	 */
-	public static function custom_mt_uniqid($prefix = 'Mo')
+	public static function custom_mt_uniqid($prefix = 'MO')
 	{
 		$value = mt_rand();
 
@@ -230,56 +232,6 @@ class Helper
 
 
     /**
-     * 测试专用.
-     *
-     * 本机更新其余测试平台使用的 access_token.
-     *
-     * @farwish
-     */
-    public static function update_access_token($access_token, $expires_in)
-    {
-        $url = 'http://test.kankanyisheng.com/index.php?c=index&a=change_access_token&';
-
-        $str = http_build_query([
-            'access_token' => $access_token,
-            'expires_at' => time() + $expires_in,
-        ]);
-
-        $url = $url . $str;
-
-        $ret = json_decode(file_get_contents($url), TRUE);
-
-        if ($ret['status'] == 0) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * TOKEN 生成.
-     *
-     * @param $uid
-     *
-     * @return string
-     *
-     * @farwish
-     */
-    public static function gentoken($uid = '')
-    {
-        $str = microtime() . (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'unknow') .
-            $uid . '7200';
-
-        $md5 = md5($str);
-
-        $crypt = crypt($md5, 'CRYPT_SHA256');
-
-        $md5 = md5($crypt);
-
-        return substr(strrev($md5), 1);
-    }
-
-    /**
      * 是否微信客户端打开.
      *
      * @return bool
@@ -302,7 +254,7 @@ class Helper
      *
      * @farwish
      */
-    public static function gen_orderid($prefix = 'YK')
+    public static function get_orderid($prefix = 'MO')
     {
         $uniq = uniqid(TRUE);
 
@@ -312,48 +264,18 @@ class Helper
     /**
      * 新 order_id 生成，32位内.
      *
-     * @param $salt integer
+     * @param $prefix string
      *
      * @return string
      *
      * @farwish
      */
-    public static function orderid($salt = '')
+    public static function orderid($prefix = 'MO')
     {
-        // 14 + 8 + 5 + 3 = 30
-        return str_replace('.', '', microtime(true)) .
-            date('Ymd') .
-            str_pad(substr($salt, 0, 3), 5, 0) .
-            mt_rand(100, 999);
+        return $prefix.str_replace('.', '', microtime(true)) .
+            date('Ymd') .mt_rand(100, 999);
     }
 
-
-    /**
-     * @param $url
-     * @desc file_get_contents 替代函数
-     * @author charlesyq
-     * @return mixed|string
-     */
-    public static function get_url_content($url) {
-        if (extension_loaded('curl')) {
-            $curl = curl_init(); // 启动一个CURL会话
-            curl_setopt($curl, CURLOPT_URL, $url); // 要访问的地址
-            curl_setopt($curl, CURLOPT_SSLVERSION, 1); //设定SSL版本
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE); // 对认证证书来源的检查
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE); // 从证书中检查SSL加密算法是否存在
-            curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)'); // 模拟用户使用的浏览器
-            //curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
-            //curl_setopt($curl, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
-            curl_setopt($curl, CURLOPT_TIMEOUT, 5); // 设置超时限制防止死循环
-            curl_setopt($curl, CURLOPT_HEADER, 0); // 显示返回的Header区域内容
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); // 获取的信息以文件流的形式返回
-            $content = curl_exec($curl); // 执行操作
-            curl_close($curl);
-        } else {
-            $content = file_get_contents($url);
-        }
-        return $content;
-    }
 
     /**
      * @param $string： 要截取的字符串
@@ -428,13 +350,14 @@ class Helper
      * @author charlesyq
      * @return mixed
      */
-    public static function pure_content($str){
+    public static function pure_content($str)
+    {
         //中文标点
         $char = "。、！？：；﹑•＂…‘’“”〝〞∕¦‖—　〈〉﹞﹝「」‹›〖〗】【»«』『〕〔》《﹐¸﹕︰﹔！¡？¿﹖﹌﹏﹋＇´ˊˋ―﹫︳︴¯＿￣﹢﹦﹤‐­˜﹟﹩﹠﹪﹡﹨﹍﹉﹎﹊ˇ︵︶︷︸︹︿﹀︺︽︾ˉ﹁﹂﹃﹄︻︼（）";
 
         $pattern = array(
             "/[[:punct:]]/i", //英文标点符号
-            '/['.$char.']/u', //中文标点符号
+            '/[' . $char . ']/u', //中文标点符号
             '/[ ]{2,}/'
         );
         $str = preg_replace($pattern, ' ', $str);
@@ -452,7 +375,7 @@ class Helper
      * @param int $decimal
      * @return float
      */
-    static function GetDistance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2)
+    public static function get_distance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2)
     {
         $radLat1 = $lat1 * PI() / 180.0;   //PI()圆周率
         $radLat2 = $lat2 * PI() / 180.0;
@@ -468,6 +391,149 @@ class Helper
     }
 
 
+    /**
+     *生成密码
+     */
+    public static function make_password($str, $prefix='momo')
+    {
+        return md5(substr(md5($str), 8, 10) . $prefix);
+    }
 
+    /**
+     * 接口响应格式
+     */
+    public static function api_respond($data=[],$status='',$msg='')
+    {
+        $status = $status ?: Codes::ACTION_SUC;
+        $msg = $msg ?: Codes::get(Codes::ACTION_SUC);
+        $arr = [
+            'status' => $status,
+            'msg' => $msg,
+            'data' => $data
+        ];
+        return json($arr);
+    }
 
+    /**
+     * 生成token
+     */
+    public static function get_token($uid = '')
+    {
+        $str = microtime() . (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'unknow') .
+            $uid . '7200';
+
+        $md5 = md5($str);
+
+        $crypt = crypt($md5, 'CRYPT_SHA256');
+
+        $md5 = md5($crypt);
+
+        return substr(strrev($md5), 1);
+    }
+
+    /**
+     * 验证手机号
+     * @param $number 手机号
+     */
+    public static function check_phone($number)
+    {
+        if (preg_match("/^1\d{10}$/", $number)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 验证银行卡
+     * @param $card 银行卡号
+    */
+    public static function check_bankcard($card)
+    {
+        $n = 0;
+        for ($i = strlen($card); $i >= 1; $i--) {
+            $index = $i - 1;
+            //偶数位
+            if ($i % 2 == 0) {
+                $n += $card{$index};
+            } else {//奇数位
+                $t = $card{$index} * 2;
+                if ($t > 9) {
+                    $t = (int)($t / 10) + $t % 10;
+                }
+                $n += $t;
+            }
+        }
+        return ($n % 10) == 0;
+    }
+
+    /**
+     * 生成随机字符串
+     * @param $lenth 验证码长度
+     * @param $codetype 0字符串；1数字
+     */
+    public static function verify_code($codetype=0,$lenth=4)
+    {
+        if (empty($codetype)) {
+            $strs = "QWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+            $code = substr(str_shuffle($strs), mt_rand(0, strlen($strs) - 11), $lenth);
+        } else {
+            $randStr = str_shuffle('1234567890');
+            $code = substr($randStr, 0, 4);
+        }
+        return $code;
+    }
+
+    /**
+     * 获取客户端ip地址
+     * @param $type 0正常ip地址；1 经过ip2long之后的数据
+     */
+   public static function getIp($type = 0)
+   {
+       $type = $type ? 1 : 0;
+       static $ip = NULL;
+       if ($ip !== NULL) return $ip[$type];
+       if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+           $arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+           $pos = array_search('unknown', $arr);
+           if (false !== $pos) unset($arr[$pos]);
+           $ip = trim($arr[0]);
+       } elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {
+           $ip = $_SERVER['HTTP_CLIENT_IP'];
+       } elseif (isset($_SERVER['REMOTE_ADDR'])) {
+           $ip = $_SERVER['REMOTE_ADDR'];
+       }
+       // IP地址合法验证
+       $long = sprintf("%u", ip2long($ip));
+       $ip = $long ? array($ip, $long) : array('0.0.0.0', 0);
+       return $ip[$type];
+   }
+
+    /**
+     * 删除文件夹下的文件以及文件夹
+     * @param $path 文件目录
+     */
+   public static function delDir($path)
+   {
+        //如果是目录则继续
+       if (is_dir($path)) {
+           //扫描一个文件夹内的所有文件夹和文件并返回数组
+           $p = scandir($path);
+           foreach ($p as $val) {
+               //排除目录中的.和..
+               if ($val != "." && $val != "..") {
+                   //如果是目录则递归子目录，继续操作
+                   if (is_dir($path . $val)) {
+                       //子目录中操作删除文件夹和文件
+                       self::delDir($path . $val . '/');
+                       //目录清空后删除空文件夹
+                       @rmdir($path . $val . '/');
+                   } else {
+                       //如果是文件直接删除
+                       unlink($path . $val);
+                   }
+               }
+           }
+       }
+   }
 }

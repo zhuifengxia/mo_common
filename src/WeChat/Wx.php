@@ -1,12 +1,14 @@
 <?php
+/**
+ * Description: 微信基础操作类.
+ * Author: momo
+ * Date: 2019-04-24 11:47
+ * Copyright: momo
+ */
 
 namespace MoCommon\WeChat;
 
-/**
- * 微信基础操作类.
- *
- * @farwish
- */
+
 class Wx extends WxAbstract
 {
     /**
@@ -755,7 +757,7 @@ class Wx extends WxAbstract
      * @author charlesyq
      * @return string
      */
-    protected static function sp_qrcode_create($access_token,$json_template)
+    public static function sp_qrcode_create($access_token,$json_template)
     {
         $url = static::sp_qrcode_create_uri($access_token);
         return static::parsePostJson($url, urldecode($json_template),1);

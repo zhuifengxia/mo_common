@@ -1,6 +1,6 @@
 <?php
 
-namespace MoCommon\WeChat\Wxpay;
+namespace MoCommon\Payment\Wxpay;
 
 /**
  * 支付配置.
