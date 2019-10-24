@@ -262,7 +262,7 @@ class Helper
     }
 
     /**
-     * 新 order_id 生成，32位内.
+     * 新 order_id 生成，最少16位
      *
      * @param $prefix string
      *
@@ -270,10 +270,17 @@ class Helper
      *
      * @farwish
      */
-    public static function orderid($prefix = 'MO')
+    public static function orderid($prefix = 'MO',$length=16)
     {
-        return $prefix.str_replace('.', '', microtime(true)) .
-            date('Ymd') .mt_rand(100, 999);
+        if ($length == 16) {
+            return $prefix . str_replace('.', '', microtime(true));
+        } else {
+            $randlen = $length - 16;
+            $minrand = 1 * (pow(10, $randlen - 1));
+            $maxrand = pow(10, $randlen) - 1;
+            $randstr = mt_rand($minrand, $maxrand);
+            return $prefix . str_replace('.', '', microtime(true)) . $randstr;
+        }
     }
 
 
