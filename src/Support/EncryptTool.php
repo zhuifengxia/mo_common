@@ -193,13 +193,13 @@ class EncryptTool
     /*********************SHA1withRSA加密解密STSRT***********/
 
     /**
-     * pfx证书形式的rsa加签
+     * pfx私钥加签
      * @param $string 待加密字符串
      * @param $cartfile 证书文件
      * @param string $password 证书密码
      * @return string 加密之后的字符串
      */
-    public static function rsa_pfx_encode($string,$cartfile,$password="123456")
+    public static function rsa_private_encode($string,$cartfile,$password="123456")
     {
         $public_key = file_get_contents($cartfile);
         $certs=[];
@@ -214,23 +214,39 @@ class EncryptTool
     }
 
     /**
-     * 验签
+     * 私钥验签
      * @param $string 待签字符串
      * @param $signature 签名
      * @param $cartfile 证书文件
      * @param string $password 证书密码
      * @return int 验签结果1成功；0失败；
      */
-    public static function rsa_pfx_decode($string,$signature,$cartfile,$password="123456")
+    public static function rsa_private_decode($string,$signature,$cartfile,$password="123456")
     {
-        $public_key = file_get_contents($cartfile);
+        $private_key = file_get_contents($cartfile);
         $certs = array();
-        openssl_pkcs12_read($public_key, $certs, $password);
+        openssl_pkcs12_read($private_key, $certs, $password);
         if (!$certs) {
             die('cart file error!');
         }
         $result = openssl_verify($string, base64_decode($signature), $certs['cert']); // openssl_verify验签成功返回1，失败0，错误返回-1
         return $result;
+    }
+
+    /**
+     * 公钥验签
+     * @param $string 待签字符串
+     * @param $signature 签名字符串
+     * @param $cartfile 证书文件
+     * @return int 验签结果1成功；0失败
+     */
+    public static function rsa_public_decode($string,$signature,$cartfile)
+    {
+        $cer_key = file_get_contents($cartfile); //获取证书内容
+        $unsignMsg = base64_decode($signature);//base64解码加密信息
+        $cer = openssl_x509_read($cer_key); //读取公钥
+        $res = openssl_verify($string, $unsignMsg, $cer); //验证
+        return $res; //输出验证结果，1：验证成功，0：验证失败
     }
 
     /*********************SHA1withRSA加密解密END***********/
