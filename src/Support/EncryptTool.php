@@ -223,8 +223,9 @@ class EncryptTool
      */
     public static function rsa_pfx_decode($string,$signature,$cartfile,$password="123456")
     {
+        $public_key = file_get_contents($cartfile);
         $certs = array();
-        openssl_pkcs12_read($cartfile, $certs, $password);
+        openssl_pkcs12_read($public_key, $certs, $password);
         if (!$certs) {
             die('cart file error!');
         }
