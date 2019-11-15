@@ -190,4 +190,49 @@ class EncryptTool
     /*********************encrypt加密解密STSRT***********/
 
 
+    /*********************SHA1withRSA加密解密STSRT***********/
+
+    /**
+     * pfx证书形式的rsa加签
+     * @param $string 待加密字符串
+     * @param $cartfile 证书文件
+     * @param string $password 证书密码
+     * @return string 加密之后的字符串
+     */
+    public static function rsa_pfx_encode($string,$cartfile,$password="123456")
+    {
+        $public_key = file_get_contents($cartfile);
+        $certs=[];
+        openssl_pkcs12_read($public_key,$certs,$password);
+        if(!$certs) {
+           die('cart file error!');
+        }
+        $signature = '';
+        openssl_sign($string, $signature, $certs['pkey']);
+        $signature = base64_encode($signature);// base64传输
+        return $signature;
+    }
+
+    /**
+     * 验签
+     * @param $string 待签字符串
+     * @param $signature 签名
+     * @param $cartfile 证书文件
+     * @param string $password 证书密码
+     * @return int 验签结果1成功；0失败；
+     */
+    public static function rsa_pfx_decode($string,$signature,$cartfile,$password="123456")
+    {
+        $certs = array();
+        openssl_pkcs12_read($cartfile, $certs, $password);
+        if (!$certs) {
+            die('cart file error!');
+        }
+        $result = openssl_verify($string, base64_decode($signature), $certs['cert']); // openssl_verify验签成功返回1，失败0，错误返回-1
+        return $result;
+    }
+
+    /*********************SHA1withRSA加密解密END***********/
+
+
 }
