@@ -190,7 +190,7 @@ class EncryptTool
     /*********************encrypt加密解密STSRT***********/
 
 
-    /*********************SHA1withRSA加密解密STSRT***********/
+    /*********************SHA1withRSA加签验签STSRT***********/
 
     /**
      * pfx私钥加签
@@ -199,7 +199,7 @@ class EncryptTool
      * @param string $password 证书密码
      * @return string 加密之后的字符串
      */
-    public static function rsa_private_encode($string,$cartfile,$password="123456")
+    public static function rsa_private_sign($string,$cartfile,$password="123456")
     {
         $public_key = file_get_contents($cartfile);
         $certs=[];
@@ -221,7 +221,7 @@ class EncryptTool
      * @param string $password 证书密码
      * @return int 验签结果1成功；0失败；
      */
-    public static function rsa_private_decode($string,$signature,$cartfile,$password="123456")
+    public static function rsa_private_verify($string,$signature,$cartfile,$password="123456")
     {
         $private_key = file_get_contents($cartfile);
         $certs = array();
@@ -240,7 +240,7 @@ class EncryptTool
      * @param $cartfile 证书文件
      * @return int 验签结果1成功；0失败
      */
-    public static function rsa_public_decode($string,$signature,$cartfile)
+    public static function rsa_public_verify($string,$signature,$cartfile)
     {
         $cer_key = file_get_contents($cartfile); //获取证书内容
         $unsignMsg = base64_decode($signature);//base64解码加密信息
@@ -249,7 +249,7 @@ class EncryptTool
         return $res; //输出验证结果，1：验证成功，0：验证失败
     }
 
-    /*********************SHA1withRSA加密解密END***********/
+    /*********************SHA1withRSA加签验签END***********/
 
 
 }
