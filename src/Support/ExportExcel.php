@@ -72,7 +72,6 @@ class ExportExcel
                     if (!empty($file_info['basename'])&&in_array($file_info["extension"],["jpg","png","jpeg","gif","bmp","webp"])) { //过滤非文件类型
                         $temp_file = tempnam(sys_get_temp_dir(), 'temp');
                         $img = HttpBase::curlapi($imgdomain.$item[$keys[$i - 65]],[]);
-                        $basename = $file_info['basename'];
                         file_put_contents($temp_file, $img);
                         $drawing = new Drawing();
                         $drawing->setPath($temp_file);
