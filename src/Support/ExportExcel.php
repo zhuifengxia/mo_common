@@ -9,6 +9,7 @@
 namespace MoCommon\Support;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class ExportExcel
@@ -47,10 +48,11 @@ class ExportExcel
      * $name：excel表的表名
      * $head：excel表的表头，接受一个一维数组
      * $key：$data中对应表头的键的数组，接受一个一维数组
+     * $imgdomain：如果数据中有图片，图片地址不是带域名的情况传入图片地址域名
      * 备注：此函数缺点是，表头（对应列数）不能超过26；
      *循环不够灵活，一个单元格中不方便存放两个数据库字段的值
      */
-    public static function data_export($name='测试表', $data=[], $head=[], $keys=[])
+    public static function data_export($name='测试表', $data=[], $head=[], $keys=[],$imgdomain="")
     {
         $count = count($head);  //计算表头数量
         $spreadsheet = new Spreadsheet();
@@ -64,10 +66,33 @@ class ExportExcel
 
         foreach ($data as $key => $item) {             //循环设置单元格：
             //$key+2,因为第一行是表头，所以写到表格时   从第二行开始写
-
             for ($i = 65; $i < $count + 65; $i++) {     //数字转字母从65开始：
-                $sheet->setCellValue(strtoupper(chr($i)) . ($key + 2), $item[$keys[$i - 65]]);
-                $spreadsheet->getActiveSheet()->getColumnDimension(strtoupper(chr($i)))->setWidth(20); //固定列宽
+                if(strstr($item[$keys[$i - 65]],".png")||strstr($item[$keys[$i - 65]],".jpg")){
+                    $file_info = pathinfo($imgdomain.$item[$keys[$i - 65]]);
+                    if (!empty($file_info['basename'])&&in_array($file_info["extension"],["jpg","png","jpeg","gif","bmp","webp"])) { //过滤非文件类型
+                        $dir = '/temp/image/';
+                        $img = HttpBase::curlapi($imgdomain.$item[$keys[$i - 65]],[]);
+                        $basename = $file_info['basename'];
+                        is_dir($dir) OR mkdir($dir, 0777, true); //进行检测文件是否存在
+                        file_put_contents($dir . $basename, $img);
+                        $drawing = new Drawing();
+                        $drawing->setPath($dir . $basename);
+                        $drawing->setWidth(50);
+                        $drawing->setHeight(50);
+                        $drawing->setOffsetX(12);
+                        $drawing->setOffsetY(12);
+                        $drawing->setCoordinates(strtoupper(chr($i)) . ($key + 2));
+                        $drawing->setWorksheet($spreadsheet->getActiveSheet());
+                        $spreadsheet->getActiveSheet()->getRowDimension(($key + 2))->setRowHeight(50);
+                    }else{
+                        //不是图片文件，或者其他格式文件，不做处理了
+                        $sheet->setCellValue(strtoupper(chr($i)) . ($key + 2), $item[$keys[$i - 65]]);
+                        $spreadsheet->getActiveSheet()->getColumnDimension(strtoupper(chr($i)))->setWidth(20); //固定列宽
+                    }
+                }else{
+                    $sheet->setCellValue(strtoupper(chr($i)) . ($key + 2), $item[$keys[$i - 65]]);
+                    $spreadsheet->getActiveSheet()->getColumnDimension(strtoupper(chr($i)))->setWidth(20); //固定列宽
+                }
             }
         }
         header('Content-Type: application/vnd.ms-excel');
