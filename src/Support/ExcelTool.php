@@ -1,6 +1,6 @@
 <?php
 /**
- * Description: 导出excel.
+ * Description: 导入导出excel.
  * Author: momo
  * Date: 2019-04-24 11:47
  * Copyright: momo
@@ -8,11 +8,12 @@
 
 namespace MoCommon\Support;
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ExportExcel
+class ExcelTool
 {
     /**
      * 导出excel
@@ -103,5 +104,46 @@ class ExportExcel
         $spreadsheet->disconnectWorksheets();
         unset($spreadsheet);
         exit;
+    }
+
+    /**
+     * 导入数据，读取将数组返回
+     * @param $file Excel文件
+     * @param $uploadpath 文件上传目录
+     * @return array 读取的数据
+     */
+    public static function data_import($file,$uploadpath)
+    {
+        $result_data = [
+            'status' => -1,
+            'msg' => '读取失败',
+            'data' => ""
+        ];
+        $allowExcelExt = [
+            'xls', 'xlsx',
+        ];
+        //文件扩展名
+        $exten_name = pathinfo($file['name'], PATHINFO_EXTENSION);
+        if (!in_array($exten_name, $allowExcelExt)) {
+            $result_data["msg"] = "文件类型错误";
+        }
+        $typelist = [
+            'application/vnd.ms-excel',
+            'application/vnd.ms-excel',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        ];
+
+        $res = UploadFiles::single_file_upload($typelist, $file, $uploadpath, "");
+        if ($res['status'] == 0) {
+            $path = $uploadpath . $res['data'];
+            $objReader = IOFactory::createReader('Xlsx');
+            $obj_PHPExcel = $objReader->load($path, $encode = 'utf-8');  //加载文件内容,编码utf-8
+            $excel_array = $obj_PHPExcel->getsheet(0)->toArray();   //转换为数组格式
+            array_shift($excel_array);  //删除第一个数组(标题);
+            $result_data["data"] = $excel_array;
+            $result_data['status'] = 0;
+            $result_data['msg'] = '成功';
+        }
+        return $result_data;
     }
 }
