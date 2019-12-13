@@ -112,7 +112,7 @@ class ExcelTool
      * @param $uploadpath 文件上传目录
      * @return array 读取的数据
      */
-    public static function data_import($file,$uploadpath)
+    public static function data_import($file,$uploadpath,$filesize=0)
     {
         $result_data = [
             'status' => -1,
@@ -134,7 +134,7 @@ class ExcelTool
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         ];
 
-        $res = UploadFiles::single_file_upload($typelist, $file, $uploadpath, "");
+        $res = UploadFiles::single_file_upload($typelist, $file, $uploadpath, "", $filesize);
         if ($res['status'] == 0) {
             $path = $uploadpath . $res['data'];
             $objReader = IOFactory::createReader('Xlsx');
