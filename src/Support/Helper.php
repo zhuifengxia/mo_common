@@ -372,31 +372,6 @@ class Helper
         return $str;
     }
 
-    /**
-     * 计算两点之间的距离
-     * @param $lat1 纬度1
-     * @param $lng1 经度1
-     * @param $lat2 纬度2
-     * @param $lng2 经度2
-     * @param int $len_type 1m；2km;
-     * @param int $decimal
-     * @return float
-     */
-    public static function get_distance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2)
-    {
-        $radLat1 = $lat1 * PI() / 180.0;   //PI()圆周率
-        $radLat2 = $lat2 * PI() / 180.0;
-        $a = $radLat1 - $radLat2;
-        $b = ($lng1 * PI() / 180.0) - ($lng2 * PI() / 180.0);
-        $s = 2 * asin(sqrt(pow(sin($a / 2), 2) + cos($radLat1) * cos($radLat2) * pow(sin($b / 2), 2)));
-        $s = $s * 6378.137;
-        $s = round($s * 1000);
-        if ($len_type-- > 1) {
-            $s /= 1000;
-        }
-        return round($s, $decimal);
-    }
-
 
     /**
      *生成密码
