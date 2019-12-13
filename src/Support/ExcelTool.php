@@ -117,6 +117,7 @@ class ExcelTool
         $result_data = [
             'status' => -1,
             'msg' => '读取失败',
+            'file' => "",
             'data' => ""
         ];
         $allowExcelExt = [
@@ -141,6 +142,7 @@ class ExcelTool
             $excel_array = $obj_PHPExcel->getsheet(0)->toArray();   //转换为数组格式
             array_shift($excel_array);  //删除第一个数组(标题);
             $result_data["data"] = $excel_array;
+            $result_data["file"] = $res['data'];
             $result_data['status'] = 0;
             $result_data['msg'] = '成功';
         }
