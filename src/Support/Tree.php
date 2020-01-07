@@ -474,17 +474,18 @@ class Tree
 
     /**
      * 组成多维数组
-     * @param $cate  将要被转换为树形的
+     * @param $data  将要被转换为树形的
+     * @param $fieldName  父节点字段名
      * @param string $name 子节点名字 默认 child
      * @param int $ischildnode 如果子级为空要不要显示空子节点 0不要显示；1显示
      * @param int $pid 父类ID, 第一级的 pid 默认为0，根据情况自己更改
      * @return array
      */
-    static function TreeList($data, $name = 'child',$ischildnode=0, $pid = 0)
+    static function TreeList($data,$fieldName, $name = 'child',$ischildnode=0, $pid = 0)
     {
         $arr = array();
         foreach ($data as $v) {
-            if ($v['pid'] == $pid) {
+            if ($v[$fieldName] == $pid) {
                 $child = self::TreeList($data, $name, $ischildnode, $v['id']);
                 if ($ischildnode == 1) {
                     $v[$name] = $child;
