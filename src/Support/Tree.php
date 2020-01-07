@@ -486,7 +486,7 @@ class Tree
         $arr = array();
         foreach ($data as $v) {
             if ($v[$fieldName] == $pid) {
-                $child = self::TreeList($data, $name, $ischildnode, $v['id']);
+                $child = self::TreeList($data, $fieldName, $name, $ischildnode, $v['id']);
                 if ($ischildnode == 1) {
                     $v[$name] = $child;
                 } else {
