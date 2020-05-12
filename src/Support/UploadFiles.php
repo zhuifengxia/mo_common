@@ -17,10 +17,11 @@ class UploadFiles
      * @param $file 文件内容
      * @param $filepath 文件上传路径
      * @param $imgfile 1图片文件；0其他文件
+     * @param $rename 1重命名，0文件原始名字
      * @param $viewpath 外部访问地址
      * @param $filesize 文件大小限制数字M为单位
      */
-    public static function single_file_upload($typelist,$file,$filepath,$isimgfile=1,$viewpath="",$filesize=0)
+    public static function single_file_upload($typelist,$file,$filepath,$isimgfile=1,$rename=1,$viewpath="",$filesize=0)
     {
         $result_data = [
             'status' => -1,
@@ -58,8 +59,12 @@ class UploadFiles
                 if (!$pos) {
                     //获取文件扩展名
                     $exten_name = pathinfo($file['name'], PATHINFO_EXTENSION);
-                    //重新命名图片名称
-                    $picname = Helper::custom_mt_uniqid() . "." . $exten_name;//重新命名文件名
+                    if ($rename) {
+                        //重新命名图片名称
+                        $picname = Helper::custom_mt_uniqid() . "." . $exten_name;//重新命名文件名
+                    } else {
+                        $picname = $file['name'];//原始文件名
+                    }
                     $fpath = $filepath;
                     //路径是否存在，不存在则创建
                     if (!is_dir($fpath)) mkdir($fpath, 0777);
@@ -83,13 +88,15 @@ class UploadFiles
 
     /**
      * 多个文件上传
-     * @param $typelist 可以上传的文件类型
+     * @param $typelist  可以上传的文件类型;-1所有类型
      * @param $files 文件内容
+     * @param $imgfile 1图片文件；0其他文件
+     * @param $rename 1重命名，0文件原始名字
      * @param $filepath 文件上传路径
      * @param $viewpath 外部访问地址
      * @param $filesize 文件大小限制数字M为单位
      */
-    public static function multiple_file_upload($typelist,$files,$filepath,$viewpath,$filesize=0)
+    public static function multiple_file_upload($typelist,$files,$filepath,$isimgfile=1,$rename=1,$viewpath="",$filesize=0)
     {
         $result_data = [
             'status' => 0,
@@ -106,7 +113,7 @@ class UploadFiles
         $up_info = $files;//获取图片文件信息
         for ($i = 0; $i < count($up_info['name']); $i++) {
             //判断上传的文件类型是否合法
-            if (!in_array($up_info['type'][$i], $typelist)) {
+            if ($typelist != -1 && !in_array($up_info['type'][$i], $typelist)) {
                 $filetypeillegal++;
                 continue;
             }
@@ -123,8 +130,13 @@ class UploadFiles
             if (is_uploaded_file($up_info['tmp_name'][$i])) {
                 //获取文件扩展名
                 $exten_name = pathinfo($up_info['name'][$i], PATHINFO_EXTENSION);
-                //重新命名图片名称
-                $picname = Helper::custom_mt_uniqid() . "." . $exten_name;//重新命名文件名
+
+                if ($rename) {
+                    //重新命名图片名称
+                    $picname = Helper::custom_mt_uniqid() . "." . $exten_name;//重新命名文件名
+                } else {
+                    $picname = $up_info['name'][$i];//原始文件名
+                }
 
                 $fpath = $filepath;
                 //路径是否存在，不存在则创建
